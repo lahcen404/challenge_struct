@@ -41,6 +41,21 @@ void Supprimer(Personne personne[], int indice, int *nbrper) {
     (*nbrper)--;
 }
 
+void Modifier(Personne *personne){
+
+printf("Modifier le nom : ");
+    scanf("%s", personne->nom);
+    printf("Modifier l'Age : ");
+    scanf("%d", &personne->age);
+    printf("Modifier le Rue : ");
+    scanf("%s", personne->adresse.rue);
+    printf("Modifier le Ville : ");
+    scanf("%s", personne->adresse.ville);
+    printf("Modifier le Code Postal : ");
+    scanf("%d", &personne->adresse.code_postal);
+
+}
+
 int main() {
     Personne p1[50];
     int doo;
@@ -76,7 +91,19 @@ int main() {
                 break;
 
             case 3:
-
+               if (nbrper == 0) {
+                    printf("Aucune personne enregistree\n");
+                } else {
+                    int indice;
+                    printf("Entrez l'indice de la personne a modifier (1 To %d) : ", nbrper);
+                    scanf("%d", &indice);
+                    if (indice >= 1 && indice <= nbrper) {
+                        Modifier(&p1[indice-1]);
+                        printf("Personne Modifier.\n");
+                    } else {
+                        printf("Indice invalide.\n");
+                    }
+                }
                 break;
 
             case 4:
