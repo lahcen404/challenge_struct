@@ -41,19 +41,49 @@ void Supprimer(Personne personne[], int indice, int *nbrper) {
     (*nbrper)--;
 }
 
-void Modifier(Personne *personne){
 
-printf("Modifier le nom : ");
-    scanf("%s", personne->nom);
-    printf("Modifier l'Age : ");
-    scanf("%d", &personne->age);
-    printf("Modifier le Rue : ");
-    scanf("%s", personne->adresse.rue);
-    printf("Modifier le Ville : ");
-    scanf("%s", personne->adresse.ville);
-    printf("Modifier le Code Postal : ");
-    scanf("%d", &personne->adresse.code_postal);
+void Modifier(Personne *personne) {
+    int choix;
 
+    do {
+        printf("Que voulez vous modifier?\n");
+        printf("1- Nom\n");
+        printf("2- Age\n");
+        printf("3- Rue\n");
+        printf("4- Ville\n");
+        printf("5- Code Postal\n");
+        printf("6- Terminer la modification\n");
+        printf("Entrez votre choix: ");
+        scanf("%d", &choix);
+
+        switch (choix) {
+            case 1:
+                printf("Nouveau nom: ");
+                scanf("%s", personne->nom);
+                break;
+            case 2:
+                printf("Nouvel age: ");
+                scanf("%d", &personne->age);
+                break;
+            case 3:
+                printf("Nouvelle rue: ");
+                scanf("%s", personne->adresse.rue);
+                break;
+            case 4:
+                printf("Nouvelle ville: ");
+                scanf("%s", personne->adresse.ville);
+                break;
+            case 5:
+                printf("Nouveau code postal: ");
+                scanf("%d", &personne->adresse.code_postal);
+                break;
+            case 6:
+                printf("Modification terminee.\n");
+                break;
+            default:
+                printf("Choix invalide, veuillez reessayer.\n");
+        }
+    } while (choix != 6);
 }
 
 int main() {
